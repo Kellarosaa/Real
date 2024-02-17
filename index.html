@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Search Bar</title>
+    <title>Search Bar with Chicago Time</title>
     <style>
         /* Custom CSS styles for the search bar */
         #searchForm {
@@ -54,12 +54,26 @@
                 $("#output").text(url);
                 window.location.href = url;
             });
+
+            // Function to get the current time in Chicago
+            function getChicagoTime() {
+                var currentTime = new Date();
+                var options = { timeZone: 'America/Chicago', hour12: false };
+                var chicagoTime = currentTime.toLocaleTimeString('en-US', options);
+                return chicagoTime;
+            }
+
+            // Update the output element with the current time in Chicago
+            setInterval(function() {
+                var chicagoTime = getChicagoTime();
+                $("#output").text("Current time in Chicago: " + chicagoTime);
+            }, 1000);
         });
     </script>
 </head>
 <body>
     <form id="searchForm">
-        <input type="text" id="searchInput" placeholder="Enter your URL">
+        <input type="text" id="searchInput" placeholder="Enter your search term">
         <input type="submit" id="searchButton" value="Search">
     </form>
     <p id="output"></p>
