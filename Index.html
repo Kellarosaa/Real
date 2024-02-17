@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Bar</title>
+    <script>
+        function generateURL() {
+            var searchInput = document.getElementById("searchInput").value;
+            var url = "https://s1p1.onrender.com/service/https://" + searchInput;
+            document.getElementById("output").innerHTML = url;
+            window.location.href = url;
+        }
+    </script>
+</head>
+<body>
+    <input type="text" id="searchInput" placeholder="Enter your search term">
+    <button onclick="generateURL()">Search</button>
+    <p id="output"></p>
+</body>
+</html>
